@@ -85,16 +85,28 @@ function keepItSecretKeepItSafe() {
 }
 
 keepItSecretKeepItSafe()
-// Part 4
 
+// Part 4
 
 function makeBuddies() {
   // create an aside tag
   // attach an unordered list of the 'buddies' in the aside
   // insert your aside as a child element of rivendell
+  var shire = body.querySelectorAll('article')
+  var buddyList = document.createElement('ul')
+
+  buddies.forEach(function(buddies) {
+
+    var eachBuddy = document.createElement('li')
+    eachBuddy.textContent = buddies
+    buddyList.appendChild(eachBuddy)
+  })
+    shire[1].appendChild(buddyList)
+
 }
 
-// makeBuddies()
+makeBuddies()
+
 // Part 5
 
 
@@ -102,14 +114,14 @@ function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
 }
 
-
+// beautifulStranger()
 // Part 6
 
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
 }
 
-
+// leaveTheShire()
 // Part 7
 
 
@@ -119,7 +131,7 @@ function forgeTheFellowShip() {
   // after each character is added make an alert that they have joined your party
 }
 
-
+// forgeTheFellowShip()
 // Part 8
 
 
@@ -129,7 +141,7 @@ function theBalrog() {
   // make the background 'white', add a grey border
 }
 
-
+// theBalrog()
 // Part 9
 
 function hornOfGondor() {
@@ -139,7 +151,7 @@ function hornOfGondor() {
   // Remove Boromir from the Fellowship
 }
 
-
+// hornOfGondor()
 // Part 10
 
 function itsDangerousToGoAlone(){
@@ -147,7 +159,7 @@ function itsDangerousToGoAlone(){
   // add a div with an id of 'mount-doom' to Mordor
 }
 
-
+// itsDangerousToGoAlone()
 // Part 11
 
 function weWantsIt() {
@@ -156,7 +168,7 @@ function weWantsIt() {
   // Move Gollum into Mount Doom
 }
 
-
+// weWantsIt()
 // Part 12
 
 function thereAndBackAgain() {
@@ -164,3 +176,4 @@ function thereAndBackAgain() {
   // remove all the baddies from the document
   // Move all the hobbits back to the shire
 }
+// thereAndBackAgain()
