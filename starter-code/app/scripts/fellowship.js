@@ -28,6 +28,17 @@ function makeMiddleEarth() {
   // add each land as an article tag
   // inside each article tag include an h1 with the name of the land
   // append middle-earth to your document body
+  var middleEarth = document.createElement('section')
+  middleEarth.id = 'middle-earth'
+
+  lands.forEach(function(land) {
+    var landArticle = document.createElement('article')
+    var landTitle = document.createElement('h1')
+    landTitle.textContent = land
+    landArticle.appendChild(landTitle)
+    middleEarth.appendChild(landArticle)
+  })
+  body.appendChild(middleEarth)
 }
 
 makeMiddleEarth();
@@ -36,11 +47,22 @@ makeMiddleEarth();
 // Part 2
 
 function makeHobbits() {
-  // display an unordered list of hobbits in the shire (which is the second article tag on the page)
+  // display an unordered list of hobbits in the shire (which is the first article tag on the page)
   // give each hobbit a class of hobbit
+    var shire = body.querySelector('article')
+    var hobbitList = document.createElement('ul')
+
+    hobbits.forEach(function(hobbit) {
+
+      var eachHobbit = document.createElement('li')
+      eachHobbit.className = 'hobbit'
+      eachHobbit.textContent = hobbit
+      hobbitList.appendChild(eachHobbit)
+    })
+      shire.appendChild(hobbitList)
 }
 
-
+makeHobbits()
 // Part 3
 
 function keepItSecretKeepItSafe() {
@@ -50,7 +72,7 @@ function keepItSecretKeepItSafe() {
   // add the ring as a child of Frodo
 }
 
-
+// keepItSecretKeepItSafe()
 // Part 4
 
 
@@ -60,7 +82,7 @@ function makeBuddies() {
   // insert your aside as a child element of rivendell
 }
 
-
+// makeBuddies()
 // Part 5
 
 
