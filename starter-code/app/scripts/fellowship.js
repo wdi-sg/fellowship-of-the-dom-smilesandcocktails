@@ -77,7 +77,7 @@ function keepItSecretKeepItSafe() {
   var frodo = hobbitList.querySelector('li')
 
   var ring = document.createElement('div')
-  ring.id = 'the-ring'
+  ring.id = 'thering'
   ring.className = 'magic-imbued-jewelry'
 
   ring.addEventListener('click', nazgulScreech)
@@ -102,6 +102,7 @@ function makeBuddies() {
 
     var eachBuddy = document.createElement('li')
     eachBuddy.className = 'buddy'
+    eachBuddy.id = 'buddyid'
     eachBuddy.textContent = buddies
     buddyList.appendChild(eachBuddy)
   })
@@ -142,6 +143,7 @@ function forgeTheFellowShip() {
   // add each hobbit and buddy one at a time to 'the-fellowship'
   // after each character is added make an alert that they have joined your party
     var theFellowship = document.createElement('div')
+    theFellowship.id = 'fellowship'
     var land = body.querySelectorAll('article')
     var eachHobbit = document.querySelectorAll('.hobbit')
     var eachBuddy = document.querySelectorAll('.buddy')
@@ -209,12 +211,13 @@ function itsDangerousToGoAlone(){
   var divInRiven = land[1].querySelector('div')
   var hobbitList = divInRiven.querySelectorAll('li')
   var mordor = land[2]
-  var mordorId = document.createElement('div')
-
-  mordorId.id = 'mount-doom'
 
   mordor.appendChild(hobbitList[0])
   mordor.appendChild(hobbitList[1])
+
+  var mountDoom = document.createElement('div')
+  mountDoom.id = 'mount-doom'
+  mordor.appendChild(mountDoom)
 
 }
 
@@ -225,14 +228,45 @@ function weWantsIt() {
   // Create a div with an id of 'gollum' and add it to Mordor
   // Remove the ring from Frodo and give it to Gollum
   // Move Gollum into Mount Doom
+  // var frodo = mordor.querySelectorAll('li')
+  var mountDoom = document.querySelector('#mount-doom')
+  var ring = document.querySelector('#thering')
+
+  var land = body.querySelectorAll('article')
+  var mordor = land[2]
+  var gollum = document.createElement('div')
+  gollum.id = 'gollum'
+
+  gollum.appendChild(ring)
+  mountDoom.appendChild(gollum)
+
 }
 
-// weWantsIt()
+weWantsIt()
 // Part 12
 
 function thereAndBackAgain() {
   // remove Gollum and the Ring from the document
   // remove all the baddies from the document
   // Move all the hobbits back to the shire
+
+  var land = body.querySelectorAll('article')
+  var shire = land[0]
+  var hobbits = document.querySelectorAll('.hobbit')
+
+  var gollum = document.querySelector('#gollum')
+  var mountDoom = document.querySelector('#mount-doom')
+
+  mountDoom.removeChild(gollum)
+
+  var hobbitsWentHome = document.createElement('ul')
+
+  hobbits.forEach(function(hobbits) {
+    hobbitsWentHome.appendChild(hobbits)
+  })
+
+  shire.appendChild(hobbitsWentHome)
+
 }
-// thereAndBackAgain()
+
+thereAndBackAgain()
