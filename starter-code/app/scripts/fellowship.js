@@ -52,6 +52,8 @@ function makeHobbits() {
     var shire = body.querySelector('article')
     var hobbitList = document.createElement('ul')
 
+    hobbitList.id = 'hobbitId'
+
     hobbits.forEach(function(hobbit) {
 
       var eachHobbit = document.createElement('li')
@@ -92,16 +94,19 @@ function makeBuddies() {
   // create an aside tag
   // attach an unordered list of the 'buddies' in the aside
   // insert your aside as a child element of rivendell
-  var shire = body.querySelectorAll('article')
+  var land = body.querySelectorAll('article')
+  var sidekick = document.createElement('aside')
   var buddyList = document.createElement('ul')
 
   buddies.forEach(function(buddies) {
 
     var eachBuddy = document.createElement('li')
+    eachBuddy.className = 'buddy'
     eachBuddy.textContent = buddies
     buddyList.appendChild(eachBuddy)
   })
-    shire[1].appendChild(buddyList)
+    sidekick.appendChild(buddyList)
+    land[1].appendChild(sidekick)
 
 }
 
@@ -109,19 +114,26 @@ makeBuddies()
 
 // Part 5
 
-
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
-}
+  var buddy = document.querySelectorAll('.buddy')
 
-// beautifulStranger()
+  buddy[3].textContent = 'Aragorn'
+
+}
+beautifulStranger()
 // Part 6
 
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
+  var land = body.querySelectorAll('article')
+  var hobbitList = document.querySelectorAll('#hobbitId')
+
+  land[1].appendChild(hobbitId)
+
 }
 
-// leaveTheShire()
+leaveTheShire()
 // Part 7
 
 
@@ -129,9 +141,26 @@ function forgeTheFellowShip() {
   // create a new div called 'the-fellowship' within rivendell
   // add each hobbit and buddy one at a time to 'the-fellowship'
   // after each character is added make an alert that they have joined your party
+    var theFellowship = document.createElement('div')
+    var land = body.querySelectorAll('article')
+    var eachHobbit = document.querySelectorAll('.hobbit')
+    var eachBuddy = document.querySelectorAll('.buddy')
+
+    land[1].appendChild(theFellowship)
+
+    eachHobbit.forEach(function(eachHobbit) {
+      theFellowship.appendChild(eachHobbit)
+      // alert('They have joined the party')
+    })
+
+    eachBuddy.forEach(function(eachBuddy) {
+      theFellowship.appendChild(eachBuddy)
+      // alert('They have joined the party')
+    })
+
 }
 
-// forgeTheFellowShip()
+forgeTheFellowShip()
 // Part 8
 
 
@@ -139,9 +168,18 @@ function theBalrog() {
   // change the 'Gandalf' textNode to 'Gandalf the White'
   // apply style to the element
   // make the background 'white', add a grey border
+
+  var land = body.querySelectorAll('article')
+  var theFellowship = land[1].querySelectorAll('li')
+  var gandalf = theFellowship[4]
+
+  gandalf.textContent = 'Gandalf the White'
+  gandalf.style.background = 'white'
+  gandalf.style.borderStyle = 'solid'
+  gandalf.style.borderColor = 'grey'
 }
 
-// theBalrog()
+theBalrog()
 // Part 9
 
 function hornOfGondor() {
@@ -149,17 +187,38 @@ function hornOfGondor() {
   // Boromir's been killed by the Uruk-hai!
   // put a linethrough on boromir's name
   // Remove Boromir from the Fellowship
+  // alert('The horn of gondor has been blown!')
+  var land = body.querySelectorAll('article')
+  var div = land[1].querySelector('div')
+  var theFellowship = land[1].querySelectorAll('li')
+  var boromir = theFellowship[8]
+
+  boromir.style.textDecoration = 'line-through'
+  div.removeChild(boromir)
+
 }
 
-// hornOfGondor()
+hornOfGondor()
 // Part 10
 
 function itsDangerousToGoAlone(){
   // take Frodo and Sam out of the fellowship and move them to Mordor
   // add a div with an id of 'mount-doom' to Mordor
+
+  var land = body.querySelectorAll('article')
+  var divInRiven = land[1].querySelector('div')
+  var hobbitList = divInRiven.querySelectorAll('li')
+  var mordor = land[2]
+  var mordorId = document.createElement('div')
+
+  mordorId.id = 'mount-doom'
+
+  mordor.appendChild(hobbitList[0])
+  mordor.appendChild(hobbitList[1])
+
 }
 
-// itsDangerousToGoAlone()
+itsDangerousToGoAlone()
 // Part 11
 
 function weWantsIt() {
